@@ -19,7 +19,7 @@ android {
         versionName "1.0"
 
         testApplicationId "com.xunlei.sdk.test.tests"
-        testInstrumentationRunner "com.zutubi.android.junitreport.JUnitReportTestRunner"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
         testHandleProfiling true
         testFunctionalTest true
     }
@@ -41,7 +41,6 @@ android {
 }
 
 dependencies {
-    compile files('libs/android-junit-report-1.5.8.jar')
     compile files('libs/xldownloadlib.jar')
     compile files('libs/xunlei_download_sdk.jar')
     androidTestCompile 'junit:junit:4.12'
