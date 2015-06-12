@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xunlei.sdk.test"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+	<instrumentation
+		android:name="com.zutubi.android.junitreport.JUnitReportTestRunner"
+		android:targetPackage="com.xunlei.sdk.test" />
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="19" />
+        
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name="com.xunlei.sdk.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+        <provider
+            android:name="com.xunlei.download.XLDownloadProvider"
+            android:authorities="com.xunlei.sdk.test.downloadprovider"
+            android:exported="true" >
+        </provider>
+        
+        <service
+            android:name="com.xunlei.download.XLDownloadService"
+            android:exported="false"
+            android:permission="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+
+        <receiver
+            android:name="com.xunlei.download.XLDownloadReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <data android:scheme="file" />
+            </intent-filter>
+        </receiver>
+                               
+        <uses-library android:name="android.test.runner" />       
+
+        <activity
+            android:name="com.xunlei.sdk.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <meta-data
+            android:name="com.xunlei.download.APP_KEY"
+            android:value="xzNjAwNjsyMDE2LTA1LTI4yb==86fd708aa785^5a41ae3c^a8^aa875e3" />
+
+        <!-- recommend max bytes over mobile default value is 512 * 1024. -->
+        <meta-data
+            android:name="com.xunlei.download.RECOMMENDED_MAX_BYTES_OVER_MOBILE"
+            android:value="524288" />
+        <!-- max bytes over mobile default value is  4 * 1024 * 1024. -->
+        <meta-data
+            android:name="com.xunlei.download.MAX_BYTES_OVER_MOBILE"
+            android:value="4194304" />
+            
+        <!-- max concurrent downloads recommended is 5, max is 10 -->
+        <meta-data
+            android:name="com.xunlei.download.MAX_CONCURRENT_DOWNLOADS"
+            android:value="10" />
+    </application>
+
+</manifest>

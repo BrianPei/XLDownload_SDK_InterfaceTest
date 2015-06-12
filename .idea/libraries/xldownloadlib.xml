@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="xldownloadlib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/xldownloadlib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

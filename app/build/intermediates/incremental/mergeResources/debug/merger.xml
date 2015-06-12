@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3" xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2"><dataSet config="main"><source path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res"><file name="ic_launcher" path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/drawable-hdpi/ic_launcher.png" qualifiers="hdpi" type="drawable"/><file name="ic_launcher" path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/drawable-mdpi/ic_launcher.png" qualifiers="mdpi" type="drawable"/><file name="ic_launcher" path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/drawable-xhdpi/ic_launcher.png" qualifiers="xhdpi" type="drawable"/><file name="ic_launcher" path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/drawable-xxhdpi/ic_launcher.png" qualifiers="xxhdpi" type="drawable"/><file name="activity_main" path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/layout/activity_main.xml" qualifiers="" type="layout"/><file name="main" path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/menu/main.xml" qualifiers="" type="menu"/><file path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/values/dimens.xml" qualifiers=""><dimen name="activity_vertical_margin">16dp</dimen><dimen name="activity_horizontal_margin">16dp</dimen></file><file path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/values/strings.xml" qualifiers=""><string name="hello_world">Hello world!</string><string name="action_settings">Settings</string><string name="app_name">xl_download_sdk_test</string></file><file path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/values/styles.xml" qualifiers=""><style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style><style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style></file><file path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/values-v11/styles.xml" qualifiers="v11"><style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <!-- API 11 theme customizations can go here. -->
+    </style></file><file path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/values-v14/styles.xml" qualifiers="v14"><style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- API 14 theme customizations can go here. -->
+    </style></file><file path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/values-w820dp/dimens.xml" qualifiers="w820dp"><dimen name="activity_horizontal_margin">64dp</dimen></file><file path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/values-zh-rCN/xl_download_strings.xml" qualifiers="zh-rCN"><string name="wifi_recommended_title">"稍后再加入下载队列吗？"</string><string name="download_running_percent">"正在下载：<ns1:g id="NUMBER">%d</ns1:g><ns1:g id="PERCENT">%%</ns1:g>"</string><string name="button_cancel_download">"取消"</string><plurals name="notif_summary_active">
+        <item quantity="one">"正在下载 1 个文件"</item>
+        <item quantity="other">"正在下载 <ns1:g id="NUMBER">%d</ns1:g> 个文件"</item>
+    </plurals><string name="wifi_recommended_body">"立即开始下载此内容 (<ns1:g id="SIZE">%s </ns1:g>) 可能会缩短电池的使用时间并/或导致过量使用移动数据连接流量（这可能导致移动运营商向您收费，具体取决于您的流量套餐）。\n\n触摸“<ns1:g id="QUEUE_TEXT">%s</ns1:g>”可在下次连接到 WLAN 网络时开始下载此内容。"</string><string name="button_queue_for_wifi">"排队"</string><plurals name="duration_minutes">
+        <item quantity="one">"1 分钟"</item>
+        <item quantity="other">"<ns1:g id="COUNT">%d</ns1:g> 分钟"</item>
+    </plurals><string name="root_downloads">"下载内容"</string><plurals name="duration_hours">
+        <item quantity="one">"1 小时"</item>
+        <item quantity="other">"<ns1:g id="COUNT">%d</ns1:g> 小时"</item>
+    </plurals><string name="button_start_now">"立即开始"</string><string name="wifi_required_body">"您必须使用 WLAN 完成此内容 (<ns1:g id="SIZE">%s </ns1:g>) 的下载。\n\n触摸“<ns1:g id="QUEUE_TEXT">%s </ns1:g>”可在下次连接到 WLAN 网络时开始下载此内容。"</string><string name="download_percent">"<ns1:g id="NUMBER">%d</ns1:g><ns1:g id="PERCENT">%%</ns1:g>"</string><string name="download_remaining">"剩余时间：<ns1:g id="DURATION">%s</ns1:g>"</string><string name="download_queued">"已加入队列"</string><string name="download_unknown_title">"&lt;未命名>"</string><plurals name="duration_seconds">
+        <item quantity="one">"1 秒"</item>
+        <item quantity="other">"<ns1:g id="COUNT">%d</ns1:g> 秒"</item>
+    </plurals><string name="download_error">"失败"</string><string name="notification_download_complete">"下载已完成。"</string><string name="app_label">"下载管理程序"</string><string name="notification_need_wifi_for_size">"文件过大，需要通过 WLAN 下载。"</string><string name="wifi_required_title">"文件太大，不适于通过运营商网络下载"</string><plurals name="notif_summary_waiting">
+        <item quantity="one">"正在等待下载 1 个文件"</item>
+        <item quantity="other">"正在等待下载 <ns1:g id="NUMBER">%d</ns1:g> 个文件"</item>
+    </plurals><string name="download_no_application_title">"无法打开文件"</string><string name="notification_paused_in_background">"已在后台暂停。"</string><string name="notification_download_failed">"下载失败。"</string><string name="download_running">"正在下载"</string></file><file path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/values-zh-rHK/xl_download_strings.xml" qualifiers="zh-rHK"><plurals name="duration_minutes">
+        <item quantity="one">"1 分鐘"</item>
+        <item quantity="other">"<ns1:g id="COUNT">%d</ns1:g> 分鐘"</item>
+    </plurals><string name="download_running">"進行中"</string><plurals name="notif_summary_active">
+        <item quantity="one">"正在下載 1 個檔案"</item>
+        <item quantity="other">"正在下載 <ns1:g id="NUMBER">%d</ns1:g> 個檔案"</item>
+    </plurals><string name="root_downloads">"下載內容"</string><string name="wifi_recommended_title">"加入佇列供稍後下載？"</string><string name="download_no_application_title">"無法開啟檔案"</string><string name="notification_download_failed">"下載失敗。"</string><string name="button_start_now">"立即開始"</string><string name="download_percent">"<ns1:g id="NUMBER">%d</ns1:g><ns1:g id="PERCENT">%%</ns1:g>"</string><plurals name="duration_hours">
+        <item quantity="one">"1 小時"</item>
+        <item quantity="other">"<ns1:g id="COUNT">%d</ns1:g> 小時"</item>
+    </plurals><string name="notification_need_wifi_for_size">"這個檔案較大，需要 Wi-Fi 才能下載。"</string><string name="notification_download_complete">"下載完成。"</string><string name="wifi_required_body">"您必須使用 Wi-Fi，才能完成下載這個 <ns1:g id="SIZE">%s </ns1:g> 的檔案。\n\n請在下次連接 Wi-Fi 網絡時，再輕觸 [<ns1:g id="QUEUE_TEXT">%s </ns1:g>] 開始下載。"</string><string name="app_label">"下載管理員"</string><string name="download_queued">"已加入序列"</string><string name="download_running_percent">"進行中，已完成 <ns1:g id="NUMBER">%d</ns1:g><ns1:g id="PERCENT">%%</ns1:g>"</string><string name="download_error">"不成功"</string><string name="button_queue_for_wifi">"加入下載佇列"</string><string name="wifi_required_title">"檔案過大，無法透過電訊公司的網絡下載"</string><plurals name="duration_seconds">
+        <item quantity="one">"1 秒"</item>
+        <item quantity="other">"<ns1:g id="COUNT">%d</ns1:g> 秒"</item>
+    </plurals><string name="notification_paused_in_background">"已在背景中暫停。"</string><plurals name="notif_summary_waiting">
+        <item quantity="one">"正在等待下載 1 個檔案"</item>
+        <item quantity="other">"正在等待下載 <ns1:g id="NUMBER">%d</ns1:g> 個檔案"</item>
+    </plurals><string name="download_remaining">"剩餘 <ns1:g id="DURATION">%s</ns1:g>"</string><string name="wifi_recommended_body">"現在下載這個 <ns1:g id="SIZE">%s </ns1:g> 的檔案，可能會縮短電池的壽命，並 (或) 超出流動數據連線的用量上限，導致流動網絡供應商根據數據計劃向您收費。\n\n請在下次連接 Wi-Fi 網絡時，再輕觸 [<ns1:g id="QUEUE_TEXT">%s</ns1:g>] 開始下載。"</string><string name="download_unknown_title">"&lt;未命名>"</string><string name="button_cancel_download">"取消"</string></file><file path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/main/res/values-zh-rTW/xl_download_strings.xml" qualifiers="zh-rTW"><string name="download_unknown_title">"&lt;未命名>"</string><plurals name="duration_hours">
+        <item quantity="one">"1 小時"</item>
+        <item quantity="other">"<ns1:g id="COUNT">%d</ns1:g> 小時"</item>
+    </plurals><string name="notification_download_failed">"下載失敗。"</string><plurals name="duration_minutes">
+        <item quantity="one">"1 分鐘"</item>
+        <item quantity="other">"<ns1:g id="COUNT">%d</ns1:g> 分鐘"</item>
+    </plurals><string name="notification_paused_in_background">"在背景中暫停。"</string><string name="root_downloads">"下載項目"</string><string name="download_running">"進行中"</string><plurals name="notif_summary_waiting">
+        <item quantity="one">"正在等待下載 1 個檔案"</item>
+        <item quantity="other">"正在等待下載 <ns1:g id="NUMBER">%d</ns1:g> 個檔案"</item>
+    </plurals><string name="wifi_recommended_body">"現在下載這個 <ns1:g id="SIZE">%s </ns1:g> 的檔案，可能會減少電池可使用的時間，並/或超額使用行動數據連線，導致行動通訊業者依據資費方案向您收費。\n\n建議您改在下次連上 Wi-Fi 網路時，再輕觸 [<ns1:g id="QUEUE_TEXT">%s</ns1:g>] 開始下載。"</string><string name="wifi_required_title">"檔案過大，無法透過行動電話業者的網路下載"</string><string name="app_label">"下載管理員"</string><string name="button_queue_for_wifi">"佇列"</string><string name="wifi_required_body">"您必須透過 Wi-Fi 才能完整下載這個 <ns1:g id="SIZE">%s </ns1:g> 的檔案。\n\n建議您改在下次連上 Wi-Fi 網路時，再輕觸 [<ns1:g id="QUEUE_TEXT">%s </ns1:g>] 開始下載。"</string><string name="button_start_now">"立即開始"</string><string name="button_cancel_download">"取消"</string><string name="wifi_recommended_title">"排入佇列以供日後下載？"</string><string name="download_percent">"<ns1:g id="NUMBER">%d</ns1:g><ns1:g id="PERCENT">%%</ns1:g>"</string><string name="download_remaining">"剩餘 <ns1:g id="DURATION">%s</ns1:g>"</string><string name="download_running_percent">"處理中，已完成 <ns1:g id="NUMBER">%d</ns1:g><ns1:g id="PERCENT">%%</ns1:g>"</string><plurals name="notif_summary_active">
+        <item quantity="one">"正在下載 1 個檔案"</item>
+        <item quantity="other">"正在下載 <ns1:g id="NUMBER">%d</ns1:g> 個檔案"</item>
+    </plurals><string name="download_queued">"已加入佇列"</string><string name="notification_download_complete">"下載完成。"</string><string name="download_error">"失敗"</string><plurals name="duration_seconds">
+        <item quantity="one">"1 秒"</item>
+        <item quantity="other">"<ns1:g id="COUNT">%d</ns1:g> 秒"</item>
+    </plurals><string name="notification_need_wifi_for_size">"這個檔案較大，需要透過 Wi-Fi 下載。"</string><string name="download_no_application_title">"無法開啟檔案"</string></file></source><source path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/build/generated/res/rs/debug"/><source path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/build/generated/res/generated/debug"/></dataSet><dataSet config="debug"><source path="/Users/Brian/StudioProjects/xl_download_sdk_test/app/src/debug/res"/></dataSet><mergedItems/></merger>
