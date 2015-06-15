@@ -6,7 +6,6 @@ import android.net.Uri;
 import com.xunlei.download.XunLeiDownloadManager.Request;
 import com.xunlei.sdk.utils.BaseCase;
 import com.xunlei.sdk.utils.CaseUtils;
-import com.xunlei.sdk.utils.VerifyUtils;
 import com.xunlei.sdk.utils.log.DebugLog;
 
 /*
@@ -24,13 +23,13 @@ public class Enqueue extends BaseCase {
 				"201412181_uc.apk");
 		// 调用接口建立下载任务
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
 		sleep(5);
 		// 验证下载速度
-		VerifyUtils.verifyDownloadResult(context, downloadManager, id);
+		CaseUtils.verifyDownloadResult(context, downloadManager, id);
 		// 验证任务字段默认值
 		Cursor cursor = CaseUtils.selectTask(context, downloadManager, id);
 		assertEquals("Uri错误", "http://cache.iruan.cn/201412/201412181_uc.apk",
@@ -61,5 +60,7 @@ public class Enqueue extends BaseCase {
 				cursor.getInt(cursor.getColumnIndex("allow_write")));
 		assertEquals("XunleiSpdy错误", 1,
 				cursor.getInt(cursor.getColumnIndex("xunlei_spdy")));
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 }

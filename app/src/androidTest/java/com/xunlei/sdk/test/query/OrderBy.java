@@ -22,7 +22,7 @@ public class OrderBy extends BaseCase {
             cursor.moveToFirst();
             for (int i = 1; i <= cursor.getCount(); i++) {
                 long id = cursor.getInt(cursor.getColumnIndex("_id"));
-                DebugLog.d("Test_Debug", "ID = " + String.valueOf(id));
+                DebugLog.d("Test_Debug", "Task ID = " + id);
                 assertTrue("ID排序错误", id > idPre);
                 idPre = id;
                 cursor.moveToNext();
@@ -42,7 +42,7 @@ public class OrderBy extends BaseCase {
             cursor.moveToLast();
             for (int i = 1; i <= cursor.getCount(); i++) {
                 long id = cursor.getInt(cursor.getColumnIndex("_id"));
-                DebugLog.d("Test_Debug", "ID = " + String.valueOf(id));
+                DebugLog.d("Test_Debug", "Task ID = " + id);
                 assertTrue("ID排序错误", id > idPre);
                 idPre = id;
                 cursor.moveToPrevious();

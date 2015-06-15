@@ -21,7 +21,7 @@ public class SetFilterById extends BaseCase {
 		if (cursor.getCount() > 0) {
 			cursor.moveToFirst();
 			long id = cursor.getInt(cursor.getColumnIndex("_id"));
-			DebugLog.d("Test_Debug", "ID = " + String.valueOf(id));
+			DebugLog.d("Test_Debug", "Task ID = " + id);
 			assertEquals("ID筛选错误", 1L, id);
 		}
 	}
@@ -38,7 +38,7 @@ public class SetFilterById extends BaseCase {
 			cursor.moveToFirst();
 			for (int i = 1; i <= cursor.getCount(); i++) {
 				long id = cursor.getInt(cursor.getColumnIndex("_id"));
-				DebugLog.d("Test_Debug", "ID = " + String.valueOf(id));
+				DebugLog.d("Test_Debug", "Task ID = " + id);
 				assertEquals("ID筛选错误", (long) i, id);
 				cursor.moveToNext();
 			}

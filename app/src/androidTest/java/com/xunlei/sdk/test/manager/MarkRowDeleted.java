@@ -76,7 +76,7 @@ public class MarkRowDeleted extends BaseCase {
 			// 获取其中一条任务
 			cursor.moveToLast();
 			long id = cursor.getLong(cursor.getColumnIndex("_id"));
-			DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+			DebugLog.d("Test_Debug", "Task ID = " + id);
 			// 调用接口
 			int result = downloadManager.markRowDeleted(id);
 			assertEquals("标记删除失败", 1, result);

@@ -36,5 +36,7 @@ public class AllowScanningByMediaScanner extends BaseCase {
 				downloadManager, id);
 		int scan = cursor.getInt(cursor.getColumnIndex("scanned"));
 		assertEquals("任务属性异常", 1, scan);
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 }

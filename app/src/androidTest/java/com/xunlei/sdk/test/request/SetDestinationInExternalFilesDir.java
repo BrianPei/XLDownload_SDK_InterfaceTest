@@ -25,7 +25,7 @@ public class SetDestinationInExternalFilesDir extends BaseCase {
 				"201412181_uc.apk");
 		// 建立下载任务
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		// 查询本地数据库验证结果
 		Cursor cursor = CaseUtils.selectTask(this.getContext(),
@@ -36,5 +36,7 @@ public class SetDestinationInExternalFilesDir extends BaseCase {
 				"存储路径错误",
 				"file:///storage/emulated/0/Android/data/com.xunlei.sdk.test/files/DownloadTest/201412181_uc.apk",
 				hint);
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 }

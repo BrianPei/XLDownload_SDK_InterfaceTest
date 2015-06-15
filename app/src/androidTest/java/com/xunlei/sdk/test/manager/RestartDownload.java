@@ -21,7 +21,7 @@ public class RestartDownload extends BaseCase {
 			// 获取其中一条任务
 			cursor.moveToLast();
 			long id = cursor.getLong(cursor.getColumnIndex("_id"));
-			DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+			DebugLog.d("Test_Debug", "Task ID = " + id);
 			// 调用接口重启任务
 			int result = downloadManager.restartDownload(id);
 			assertEquals("重启任务失败", 1, result);
@@ -72,6 +72,8 @@ public class RestartDownload extends BaseCase {
 		int status = CaseUtils.selectDownloadStatus(context, downloadManager,
 				id);
 		assertEquals("下载状态异常", 192, status);
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 
 	// 重启未开始下载的任务
@@ -87,6 +89,8 @@ public class RestartDownload extends BaseCase {
 		int status = CaseUtils.selectDownloadStatus(this.getContext(),
 				downloadManager, id);
 		assertEquals("下载状态异常", 192, status);
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 
 	// 重启暂停的任务
@@ -109,6 +113,8 @@ public class RestartDownload extends BaseCase {
 		int status = CaseUtils.selectDownloadStatus(context, downloadManager,
 				id);
 		assertEquals("下载状态异常", 193, status);
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 
 	// 重启多个任务
@@ -121,10 +127,10 @@ public class RestartDownload extends BaseCase {
 			// 获取其中2条任务
 			cursor.moveToFirst();
 			long id1 = cursor.getLong(cursor.getColumnIndex("_id"));
-			DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id1));
+			DebugLog.d("Test_Debug", "Task ID = " + id1);
 			cursor.moveToNext();
 			long id2 = cursor.getLong(cursor.getColumnIndex("_id"));
-			DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id2));
+			DebugLog.d("Test_Debug", "Task ID = " + id2);
 			// 调用接口重启任务
 			int result = downloadManager.restartDownload(id1, id2);
 			assertEquals("重启任务失败", 2, result);

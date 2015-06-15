@@ -49,6 +49,8 @@ public class GetMimeTypeForDownloadedFile extends BaseCase {
 		DebugLog.d("Test_Debug", "文件MimeType = " + fileType);
 		// 对比验证结果是否一致
 		assertEquals("mimeType错误", mimeType, fileType);
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 
 	// 未下载的任务文件类型应为null
@@ -61,5 +63,7 @@ public class GetMimeTypeForDownloadedFile extends BaseCase {
 		DebugLog.d("Test_Debug", "文件MimeType = " + fileType);
 		// 验证结果应为null
 		assertNull("mimeType错误", fileType);
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 }

@@ -14,7 +14,7 @@ public class TranslateStatus extends BaseCase {
 	public void testTranslateStatus190() {
 		printDivideLine();
 		int status = XunLeiDownloadManager.translateStatus(190);
-		Log.d("Test_Debug", "Status = " + String.valueOf(status));
+		Log.d("Test_Debug", "Status = " + status);
 		assertEquals("状态码转换错误", XunLeiDownloadManager.STATUS_PENDING, status);
 	}
 
@@ -22,7 +22,7 @@ public class TranslateStatus extends BaseCase {
 	public void testTranslateStatus192() {
 		printDivideLine();
 		int status = XunLeiDownloadManager.translateStatus(192);
-		Log.d("Test_Debug", "Status = " + String.valueOf(status));
+		Log.d("Test_Debug", "Status = " + status);
 		assertEquals("状态码转换错误", XunLeiDownloadManager.STATUS_RUNNING, status);
 	}
 
@@ -30,7 +30,7 @@ public class TranslateStatus extends BaseCase {
 	public void testTranslateStatus193() {
 		printDivideLine();
 		int status = XunLeiDownloadManager.translateStatus(193);
-		Log.d("Test_Debug", "Status = " + String.valueOf(status));
+		Log.d("Test_Debug", "Status = " + status);
 		assertEquals("状态码转换错误", XunLeiDownloadManager.STATUS_PAUSED, status);
 	}
 
@@ -38,7 +38,7 @@ public class TranslateStatus extends BaseCase {
 	public void testTranslateStatus200() {
 		printDivideLine();
 		int status = XunLeiDownloadManager.translateStatus(200);
-		Log.d("Test_Debug", "Status = " + String.valueOf(status));
+		Log.d("Test_Debug", "Status = " + status);
 		assertEquals("状态码转换错误", XunLeiDownloadManager.STATUS_SUCCESSFUL, status);
 	}
 
@@ -46,7 +46,7 @@ public class TranslateStatus extends BaseCase {
 	public void testTranslateStatus489() {
 		printDivideLine();
 		int status = XunLeiDownloadManager.translateStatus(403);
-		Log.d("Test_Debug", "Status = " + String.valueOf(status));
+		Log.d("Test_Debug", "Status = " + status);
 		assertEquals("状态码转换错误", XunLeiDownloadManager.STATUS_FAILED, status);
 	}
 

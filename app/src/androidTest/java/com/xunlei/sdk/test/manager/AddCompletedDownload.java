@@ -20,7 +20,7 @@ public class AddCompletedDownload extends BaseCase {
 		// 调用接口
 		long id = downloadManager.addCompletedDownload(title, description,
 				true, mimeType, path, 100000L, true);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		// 查询本地数据库验证结果
 		Cursor cursor = CaseUtils.selectTask(this.getContext(),
@@ -41,6 +41,8 @@ public class AddCompletedDownload extends BaseCase {
 				cursor.getInt(cursor.getColumnIndex("allow_write")));
 		assertEquals("destination错误", 6,
 				cursor.getInt(cursor.getColumnIndex("destination")));
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 
 	// 设置allowWrite
@@ -53,7 +55,7 @@ public class AddCompletedDownload extends BaseCase {
 		// 调用接口
 		long id = downloadManager.addCompletedDownload(title, description,
 				true, mimeType, path, 100000L, true, true);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		// 查询本地数据库验证结果
 		Cursor cursor = CaseUtils.selectTask(this.getContext(),
@@ -74,6 +76,8 @@ public class AddCompletedDownload extends BaseCase {
 				cursor.getInt(cursor.getColumnIndex("allow_write")));
 		assertEquals("destination错误", 6,
 				cursor.getInt(cursor.getColumnIndex("destination")));
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 
 }

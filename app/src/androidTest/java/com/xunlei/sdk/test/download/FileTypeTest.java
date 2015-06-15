@@ -7,7 +7,6 @@ import android.net.Uri;
 import com.xunlei.download.XunLeiDownloadManager.Request;
 import com.xunlei.sdk.utils.BaseCase;
 import com.xunlei.sdk.utils.CaseUtils;
-import com.xunlei.sdk.utils.VerifyUtils;
 import com.xunlei.sdk.utils.log.DebugLog;
 
 /*
@@ -24,12 +23,12 @@ public class FileTypeTest extends BaseCase {
 		request.setDestinationInExternalPublicDir(DOWNLOADPATH,
 				"201412181_uc.apk");
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
 		sleep(5);
-		VerifyUtils.verifyDownloadResult(context, downloadManager, id);
+		CaseUtils.verifyDownloadResult(context, downloadManager, id);
 		// 验证下载任务的文件类型
 		String type = CaseUtils.selectMimeType(context, downloadManager, id);
 		assertEquals("文件类型错误", "application/vnd.android.package-archive", type);
@@ -44,12 +43,12 @@ public class FileTypeTest extends BaseCase {
 		request.setDestinationInExternalPublicDir(DOWNLOADPATH,
 				"3b292df5e0fe99254496c22237a85edf8db1712e.jpg");
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
 		sleep(5);
-		VerifyUtils.verifyDownloadResult(context, downloadManager, id);
+		CaseUtils.verifyDownloadResult(context, downloadManager, id);
 		// 验证下载任务的文件类型
 		String type = CaseUtils.selectMimeType(context, downloadManager, id);
 		assertEquals("文件类型错误", "image/jpeg", type);
@@ -64,12 +63,12 @@ public class FileTypeTest extends BaseCase {
 		request.setDestinationInExternalPublicDir(DOWNLOADPATH,
 				"b24896de29cdc2a25cefa256e9b376ef.png");
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
 		sleep(5);
-		VerifyUtils.verifyDownloadResult(context, downloadManager, id);
+		CaseUtils.verifyDownloadResult(context, downloadManager, id);
 		// 验证下载任务的文件类型
 		String type = CaseUtils.selectMimeType(context, downloadManager, id);
 		assertEquals("文件类型错误", "image/png", type);
@@ -84,12 +83,12 @@ public class FileTypeTest extends BaseCase {
 		request.setDestinationInExternalPublicDir(DOWNLOADPATH,
 				"be59ad075cd3df35eb65326e6507c979.gif");
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
 		sleep(5);
-		VerifyUtils.verifyDownloadResult(context, downloadManager, id);
+		CaseUtils.verifyDownloadResult(context, downloadManager, id);
 		// 验证下载任务的文件类型
 		String type = CaseUtils.selectMimeType(context, downloadManager, id);
 		assertEquals("文件类型错误", "image/gif", type);
@@ -104,12 +103,12 @@ public class FileTypeTest extends BaseCase {
 		request.setDestinationInExternalPublicDir(DOWNLOADPATH,
 				"8787707910288262_hd.mp3");
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
 		sleep(5);
-		VerifyUtils.verifyDownloadResult(context, downloadManager, id);
+		CaseUtils.verifyDownloadResult(context, downloadManager, id);
 		// 验证下载任务的文件类型
 		String type = CaseUtils.selectMimeType(context, downloadManager, id);
 		assertEquals("文件类型错误", "audio/mpeg", type);
@@ -122,12 +121,12 @@ public class FileTypeTest extends BaseCase {
 		Request request = new Request(Uri.parse("http://ad.youku.com/ad1.mp4"));
 		request.setDestinationInExternalPublicDir(DOWNLOADPATH, "ad1.mp4");
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
 		sleep(5);
-		VerifyUtils.verifyDownloadResult(context, downloadManager, id);
+		CaseUtils.verifyDownloadResult(context, downloadManager, id);
 		// 验证下载任务的文件类型
 		String type = CaseUtils.selectMimeType(context, downloadManager, id);
 		assertEquals("文件类型错误", "audio/mpeg", type);
@@ -141,12 +140,12 @@ public class FileTypeTest extends BaseCase {
 				Uri.parse("http://dt.80txt.com/48670/%E6%97%A0%E9%99%90%E8%BF%9B%E5%8C%96.txt"));
 		request.setDestinationInExternalPublicDir(DOWNLOADPATH, "testTXT.txt");
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
 		sleep(5);
-		VerifyUtils.verifyDownloadResult(context, downloadManager, id);
+		CaseUtils.verifyDownloadResult(context, downloadManager, id);
 		// 验证下载任务的文件类型
 		String type = CaseUtils.selectMimeType(context, downloadManager, id);
 		assertEquals("文件类型错误", "text/plain", type);
@@ -161,12 +160,12 @@ public class FileTypeTest extends BaseCase {
 		request.setDestinationInExternalPublicDir(DOWNLOADPATH,
 				"miui_MI2A_4.12.5_9a4dd2b79d_4.1.zip");
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
 		sleep(5);
-		VerifyUtils.verifyDownloadResult(context, downloadManager, id);
+		CaseUtils.verifyDownloadResult(context, downloadManager, id);
 		// 验证下载任务的文件类型
 		String type = CaseUtils.selectMimeType(context, downloadManager, id);
 		assertEquals("文件类型错误", "application/zip", type);
@@ -181,12 +180,12 @@ public class FileTypeTest extends BaseCase {
 		request.setDestinationInExternalPublicDir(DOWNLOADPATH,
 				"miwifi_r1cm_all_02508_0.7.15.bin");
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
 		sleep(5);
-		VerifyUtils.verifyDownloadResult(context, downloadManager, id);
+		CaseUtils.verifyDownloadResult(context, downloadManager, id);
 		// 验证下载任务的文件类型
 		String type = CaseUtils.selectMimeType(context, downloadManager, id);
 		assertEquals("文件类型错误", "application/octet-stream", type);
@@ -201,12 +200,12 @@ public class FileTypeTest extends BaseCase {
 		request.setDestinationInExternalPublicDir(DOWNLOADPATH,
 				"1.0.7_1007.mds");
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
 		sleep(5);
-		VerifyUtils.verifyDownloadResult(context, downloadManager, id);
+		CaseUtils.verifyDownloadResult(context, downloadManager, id);
 		// 验证下载任务的文件类型
 		String type = CaseUtils.selectMimeType(context, downloadManager, id);
 		assertEquals("文件类型错误", "application/octet-stream", type);

@@ -24,7 +24,7 @@ public class SetDescription extends BaseCase {
 		request.setDescription(descChar);
 		// 建立下载任务
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		sleep(1);
 		// 查询本地数据库验证结果
@@ -34,5 +34,7 @@ public class SetDescription extends BaseCase {
 				.getColumnIndex("description"));
 		DebugLog.d("Test_Debug", "任务描述 = " + descColomn);
 		assertEquals("任务描述错误", descString, descColomn);
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 }

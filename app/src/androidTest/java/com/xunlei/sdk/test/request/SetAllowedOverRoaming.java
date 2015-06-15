@@ -31,7 +31,7 @@ public class SetAllowedOverRoaming extends BaseCase {
 		assertEquals("设置属性失败", false, mRoamingAllowed);
 		// 建立测试任务
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		// 查询本地数据库验证结果
 		Cursor cursor = CaseUtils.selectTask(this.getContext(),
@@ -39,6 +39,8 @@ public class SetAllowedOverRoaming extends BaseCase {
 		int allowRoaming = cursor
 				.getInt(cursor.getColumnIndex("allow_roaming"));
 		assertEquals("任务属性异常", 0, allowRoaming);
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 
 	// 设置为允许漫游
@@ -57,7 +59,7 @@ public class SetAllowedOverRoaming extends BaseCase {
 		assertEquals("设置属性失败", true, mRoamingAllowed);
 		// 建立测试任务
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		// 查询本地数据库验证结果
 		Cursor cursor = CaseUtils.selectTask(this.getContext(),
@@ -65,5 +67,7 @@ public class SetAllowedOverRoaming extends BaseCase {
 		int allowRoaming = cursor
 				.getInt(cursor.getColumnIndex("allow_roaming"));
 		assertEquals("任务属性异常", 1, allowRoaming);
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 }

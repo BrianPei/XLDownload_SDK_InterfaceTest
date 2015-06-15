@@ -24,7 +24,7 @@ public class SetTitle extends BaseCase {
 		request.setTitle(titleChar);
 		// 建立下载任务
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		sleep(1);
 		// 查询本地数据库验证结果
@@ -33,5 +33,7 @@ public class SetTitle extends BaseCase {
 		String titleColomn = cursor.getString(cursor.getColumnIndex("title"));
 		DebugLog.d("Test_Debug", "Title = " + titleColomn);
 		assertEquals("任务标题错误", titleString, titleColomn);
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 }

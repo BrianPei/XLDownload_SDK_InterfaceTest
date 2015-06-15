@@ -15,7 +15,7 @@ public class GetDownloadUri extends BaseCase {
 		printDivideLine();
 		// 调用接口
 		Uri downloadUri = XunLeiDownloadManager.getDownloadUri();
-		DebugLog.d("Test_Debug", "DownloadProvider = " + downloadUri.toString());
+		DebugLog.d("Test_Debug", "DownloadProvider = " + downloadUri);
 		// 验证结果
 		assertEquals(
 				"DownloadProvider位置获取错误",
@@ -28,7 +28,7 @@ public class GetDownloadUri extends BaseCase {
 		printDivideLine();
 		// 调用接口
 		Uri downloadUri = XunLeiDownloadManager.getDownloadUri(1L);
-		DebugLog.d("Test_Debug", "DownloadProvider = " + downloadUri.toString());
+		DebugLog.d("Test_Debug", "DownloadProvider = " + downloadUri);
 		// 验证结果
 		assertEquals(
 				"DownloadProvider位置获取错误",

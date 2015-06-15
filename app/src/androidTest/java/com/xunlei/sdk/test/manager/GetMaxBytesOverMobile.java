@@ -16,10 +16,9 @@ public class GetMaxBytesOverMobile extends BaseCase {
 		// 调用接口
 		long bytes = XunLeiDownloadManager.getMaxBytesOverMobile(context);
 		DebugLog.d("Test_Debug",
-				"MaxBytes OverMobile = " + String.valueOf(bytes));
+				"MaxBytes OverMobile = " + bytes);
 		// 验证结果
-		assertEquals("移动网络下载限制异常", XunLeiDownloadManager.MAX_BYTES_OVER_MOBILE,
-				bytes);
+		assertEquals("移动网络下载限制异常", 4194304L, bytes);
 	}
 
 }

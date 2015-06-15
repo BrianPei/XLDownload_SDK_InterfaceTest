@@ -39,5 +39,6 @@ public class BaseCase extends AndroidTestCase {
 		String caseName = Thread.currentThread().getStackTrace()[3]
 				.getMethodName();
 		DebugLog.d("Test_Debug", "*******" + caseName + " Start!*******");
+		sleep(1);
 	}
 }

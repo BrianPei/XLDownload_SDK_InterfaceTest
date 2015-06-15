@@ -21,12 +21,14 @@ public class SetMimeType extends BaseCase {
 		request.setMimeType("TestMimeType");
 		// 建立下载任务
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		// 查询本地数据库验证结果
 		String mimeType = CaseUtils.selectMimeType(this.getContext(),
 				downloadManager, id);
 		DebugLog.d("Test_Debug", "文件类型 = " + mimeType);
 		assertEquals("文件类型错误", "TestMimeType", mimeType);
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 }

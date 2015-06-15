@@ -6,6 +6,7 @@ import android.net.Uri;
 
 import com.xunlei.download.XunLeiDownloadManager.Request;
 import com.xunlei.sdk.utils.BaseCase;
+import com.xunlei.sdk.utils.CaseUtils;
 import com.xunlei.sdk.utils.log.DebugLog;
 
 /*
@@ -24,7 +25,7 @@ public class AddRequestHeader extends BaseCase {
 		request.addRequestHeader("TestKey", "TestValue");
 		// 建立下载任务
 		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
+		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
 		// 查询本地数据库验证结果
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -36,6 +37,8 @@ public class AddRequestHeader extends BaseCase {
 		assertEquals("Key错误", "TestKey", cursor.getString(2));
 		DebugLog.d("Test_Debug", "Value = " + cursor.getString(3));
 		assertEquals("Value错误", "TestValue", cursor.getString(3));
+		//删除下载任务，清理测试环境
+		CaseUtils.deleteTasks(downloadManager, id);
 	}
 
 }
