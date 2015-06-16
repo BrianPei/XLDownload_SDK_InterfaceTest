@@ -47,6 +47,37 @@ public class CaseUtils extends AndroidTestCase {
     }
 
     /**
+     * 添加一个下载成功的任务
+     *
+     * @param context
+     * @param downloadManager
+     * @return
+     */
+    public static long insertSuccessfulTask(Context context,
+                                            XunLeiDownloadManager downloadManager) {
+        Request request = new Request(
+                Uri.parse("http://imgsrc.baidu.com/baike/pic/item/3b292df5e0fe99254496c22237a85edf8db1712e.jpg"));
+        request.setDestinationInExternalPublicDir("Download/sdk_test",
+                "success.jpg");
+        long id = downloadManager.enqueue(request);
+        DebugLog.d("Test_Debug", "Task ID = " + id);
+        assertTrue("下载任务建立失败", id > 0);
+        CaseUtils.startActivity(context);
+        int status = 0;
+        do {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            Cursor cursor = CaseUtils.selectTask(context, downloadManager, id);
+            status = cursor.getInt(cursor.getColumnIndex("status"));
+        } while (status < 200);
+        return id;
+    }
+
+    /**
      * 添加一个下载异常的任务
      *
      * @param context

@@ -26,7 +26,6 @@ public class SetMimeType extends BaseCase {
 		// 查询本地数据库验证结果
 		String mimeType = CaseUtils.selectMimeType(this.getContext(),
 				downloadManager, id);
-		DebugLog.d("Test_Debug", "文件类型 = " + mimeType);
 		assertEquals("文件类型错误", "TestMimeType", mimeType);
 		//删除下载任务，清理测试环境
 		CaseUtils.deleteTasks(downloadManager, id);

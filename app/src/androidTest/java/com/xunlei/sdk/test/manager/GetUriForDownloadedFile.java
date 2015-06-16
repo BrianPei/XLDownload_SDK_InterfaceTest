@@ -29,9 +29,7 @@ public class GetUriForDownloadedFile extends BaseCase {
 			DebugLog.d("Test_Debug", "接口返回Uri = " + fileUri);
 			// 对比验证结果是否一致
 			String localString = localUri.split("[.]")[0];
-			DebugLog.d("Test_Debug", localString);
 			String fileString = (fileUri.toString()).split("[-]")[0];
-			DebugLog.d("Test_Debug", fileString);
 			assertEquals("本地Uri错误", localString, fileString);
 		} else {
 			DebugLog.d("Test_Debug", "暂无已完成任务，请重试");

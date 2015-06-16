@@ -27,16 +27,5 @@ public class AllowScanningByMediaScanner extends BaseCase {
 		// 通过反射验证设置成功
 		Object mScannable = ReflectUtils.getPrivateAttr(request, "mScannable");
 		assertEquals("设置属性失败", true, mScannable);
-		// 建立测试任务
-		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + String.valueOf(id));
-		assertTrue("下载任务建立失败", id > 0);
-		// 查询本地数据库验证结果
-		Cursor cursor = CaseUtils.selectTask(this.getContext(),
-				downloadManager, id);
-		int scan = cursor.getInt(cursor.getColumnIndex("scanned"));
-		assertEquals("任务属性异常", 1, scan);
-		//删除下载任务，清理测试环境
-		CaseUtils.deleteTasks(downloadManager, id);
 	}
 }

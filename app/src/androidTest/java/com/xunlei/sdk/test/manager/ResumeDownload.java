@@ -112,24 +112,25 @@ public class ResumeDownload extends BaseCase {
     public void testResumeSuccessfulDownload() {
         printDivideLine();
         // 查询本地数据库获取已下载完成的任务
+        long id;
         Cursor cursor = CaseUtils.selectTaskByStatus(this.getContext(),
                 downloadManager, 200);
         if (cursor.getCount() > 0) {
             // 获取其中一条任务
             cursor.moveToLast();
-            long id = cursor.getLong(cursor.getColumnIndex("_id"));
+            id = cursor.getLong(cursor.getColumnIndex("_id"));
             DebugLog.d("Test_Debug", "Task ID = " + id);
-            // 调用接口续传任务
-            int result = downloadManager.resumeDownload(id);
-            assertEquals("续传任务失败", 0, result);
-            sleep(1);
-            // 查询数据库验证下载状态(此时会开始下载)
-            int status = CaseUtils.selectDownloadStatus(this.getContext(),
-                    downloadManager, id);
-            assertEquals("下载状态异常", 200, status);
         } else {
-            DebugLog.d("Test_Debug", "暂无已完成任务，请重试");
+            id = CaseUtils.insertSuccessfulTask(this.getContext(),downloadManager);
         }
+        // 调用接口续传任务
+        int result = downloadManager.resumeDownload(id);
+        assertEquals("续传任务失败", 0, result);
+        sleep(1);
+        // 查询数据库验证下载状态(此时会开始下载)
+        int status = CaseUtils.selectDownloadStatus(this.getContext(),
+                downloadManager, id);
+        assertEquals("下载状态异常", 200, status);
     }
 
     // 续传下载失败的任务

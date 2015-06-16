@@ -92,26 +92,27 @@ public class PauseDownload extends BaseCase {
     public void testPauseSuccessfulDownload() {
         printDivideLine();
         // 查询本地数据库获取已下载完成的任务
+        long id;
         Cursor cursor = CaseUtils.selectTaskByStatus(this.getContext(),
                 downloadManager, 200);
         if (cursor.getCount() > 0) {
             // 获取其中一条任务
             cursor.moveToLast();
-            long id = cursor.getLong(cursor.getColumnIndex("_id"));
+            id = cursor.getLong(cursor.getColumnIndex("_id"));
             DebugLog.d("Test_Debug", "Task ID = " + id);
-            // 调用接口
-            int pauseResult = downloadManager.pauseDownload(id);
-            assertEquals("暂停失败", 0, pauseResult);
-            sleep(1);
-            // 查询数据库验证此时下载状态
-            int pauseStatus = CaseUtils.selectDownloadStatus(this.getContext(),
-                    downloadManager, id);
-            assertEquals("任务状态异常", 200, pauseStatus);
-            //删除下载任务，清理测试环境
-            CaseUtils.deleteTasks(downloadManager, id);
         } else {
-            DebugLog.d("Test_Debug", "暂无已完成任务，请重试");
+            id = CaseUtils.insertSuccessfulTask(this.getContext(),downloadManager);
         }
+        // 调用接口
+        int pauseResult = downloadManager.pauseDownload(id);
+        assertEquals("暂停失败", 0, pauseResult);
+        sleep(1);
+        // 查询数据库验证此时下载状态
+        int pauseStatus = CaseUtils.selectDownloadStatus(this.getContext(),
+                downloadManager, id);
+        assertEquals("任务状态异常", 200, pauseStatus);
+        //删除下载任务，清理测试环境
+        CaseUtils.deleteTasks(downloadManager, id);
     }
 
     // 暂停多个任务

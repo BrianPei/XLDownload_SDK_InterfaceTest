@@ -22,7 +22,7 @@ public class GetMimeTypeForDownloadedFile extends BaseCase {
 			// 查询数据库获取文件类型
 			long id = cursor.getLong(cursor.getColumnIndex("_id"));
 			String mimeType = cursor.getString(cursor
-					.getColumnIndex("media_type"));
+					.getColumnIndex("mimetype"));
 			// 调用接口获取文件类型
 			String fileType = downloadManager.getMimeTypeForDownloadedFile(id);
 			DebugLog.d("Test_Debug", "文件MimeType = " + fileType);

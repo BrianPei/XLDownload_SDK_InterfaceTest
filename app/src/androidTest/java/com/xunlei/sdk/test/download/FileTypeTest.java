@@ -59,9 +59,9 @@ public class FileTypeTest extends BaseCase {
 		printDivideLine();
 		// 建立下载任务
 		Request request = new Request(
-				Uri.parse("http://simg3.gelbooru.com/images/b2/48/b24896de29cdc2a25cefa256e9b376ef.png"));
+				Uri.parse("http://sgstatis.haoghost.com/data/kindeditor/attached/image/2014/11/25/20141125090101_70727.png"));
 		request.setDestinationInExternalPublicDir(DOWNLOADPATH,
-				"b24896de29cdc2a25cefa256e9b376ef.png");
+				"20141125090101_70727.png");
 		long id = downloadManager.enqueue(request);
 		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);
@@ -113,32 +113,14 @@ public class FileTypeTest extends BaseCase {
 		String type = CaseUtils.selectMimeType(context, downloadManager, id);
 		assertEquals("文件类型错误", "audio/mpeg", type);
 	}
-
-	// 类型为MP4
-	public void test_MP4() {
-		printDivideLine();
-		// 建立下载任务
-		Request request = new Request(Uri.parse("http://ad.youku.com/ad1.mp4"));
-		request.setDestinationInExternalPublicDir(DOWNLOADPATH, "ad1.mp4");
-		long id = downloadManager.enqueue(request);
-		DebugLog.d("Test_Debug", "Task ID = " + id);
-		assertTrue("下载任务建立失败", id > 0);
-		Context context = this.getContext();
-		CaseUtils.startActivity(context);
-		sleep(5);
-		CaseUtils.verifyDownloadResult(context, downloadManager, id);
-		// 验证下载任务的文件类型
-		String type = CaseUtils.selectMimeType(context, downloadManager, id);
-		assertEquals("文件类型错误", "audio/mpeg", type);
-	}
-
+	
 	// 类型为TXT
 	public void test_TXT() {
 		printDivideLine();
 		// 建立下载任务
 		Request request = new Request(
-				Uri.parse("http://dt.80txt.com/48670/%E6%97%A0%E9%99%90%E8%BF%9B%E5%8C%96.txt"));
-		request.setDestinationInExternalPublicDir(DOWNLOADPATH, "testTXT.txt");
+				Uri.parse("http://txt.bxwxtxt.com/packdown/fulltxt/35/35282.txt"));
+		request.setDestinationInExternalPublicDir(DOWNLOADPATH, "35282.txt");
 		long id = downloadManager.enqueue(request);
 		DebugLog.d("Test_Debug", "Task ID = " + id);
 		assertTrue("下载任务建立失败", id > 0);

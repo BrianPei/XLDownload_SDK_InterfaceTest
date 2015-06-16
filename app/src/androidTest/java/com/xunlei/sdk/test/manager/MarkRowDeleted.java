@@ -70,24 +70,25 @@ public class MarkRowDeleted extends BaseCase {
 	public void testMarkSuccessfulDeleted() {
 		printDivideLine();
 		// 查询本地数据库获取已下载完成的任务
+		long id;
 		Cursor cursor = CaseUtils.selectTaskByStatus(this.getContext(),
 				downloadManager, 200);
 		if (cursor.getCount() > 0) {
 			// 获取其中一条任务
 			cursor.moveToLast();
-			long id = cursor.getLong(cursor.getColumnIndex("_id"));
+			id = cursor.getLong(cursor.getColumnIndex("_id"));
 			DebugLog.d("Test_Debug", "Task ID = " + id);
-			// 调用接口
-			int result = downloadManager.markRowDeleted(id);
-			assertEquals("标记删除失败", 1, result);
-			sleep(3);
-			// 查询本地数据库验证任务已被删除
-			Cursor cursor2 = CaseUtils.selectTask(this.getContext(),
-					downloadManager, id);
-			assertEquals("任务仍存在于数据库", 0, cursor2.getCount());
 		} else {
-			DebugLog.d("Test_Debug", "暂无已完成任务，请重试");
+			id = CaseUtils.insertSuccessfulTask(this.getContext(),downloadManager);
 		}
+		// 调用接口
+		int result = downloadManager.markRowDeleted(id);
+		assertEquals("标记删除失败", 1, result);
+		sleep(3);
+		// 查询本地数据库验证任务已被删除
+		Cursor cursor2 = CaseUtils.selectTask(this.getContext(),
+				downloadManager, id);
+		assertEquals("任务仍存在于数据库", 0, cursor2.getCount());
 	}
 
 	// 标记下载失败的任务
