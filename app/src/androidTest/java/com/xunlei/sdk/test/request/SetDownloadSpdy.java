@@ -32,6 +32,8 @@ public class SetDownloadSpdy extends BaseCase {
         // 查询本地数据库验证结果
         Cursor cursor = CaseUtils.selectTask(context,
                 downloadManager, id);
+        int status = cursor.getInt(cursor.getColumnIndex("status"));
+        DebugLog.d("Test_Debug", "Status = " + status);
         int p2sSpeed = cursor.getInt(cursor.getColumnIndex("p2s_speed"));
         DebugLog.d("Test_Debug", "P2S Speed = " + p2sSpeed);
         assertTrue("加速下载未开启", p2sSpeed > 0);
