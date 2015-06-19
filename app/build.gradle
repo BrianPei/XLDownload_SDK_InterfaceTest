@@ -44,4 +44,5 @@ dependencies {
     compile files('libs/xldownloadlib.jar')
     compile files('libs/xunlei_download_sdk.jar')
     androidTestCompile 'junit:junit:4.12'
+    compile files('libs/xl_download_sdk.jar')
 }

@@ -11,6 +11,7 @@ import com.xunlei.sdk.utils.log.DebugLog;
 
 public class DownloadStatusTest extends BaseCase {
 
+    // 异常状态为403的链接
     public void testStatus403() {
         printDivideLine();
         // 建立下载任务
@@ -29,6 +30,7 @@ public class DownloadStatusTest extends BaseCase {
         assertEquals("任务状态异常", 403, status);
     }
 
+    // 异常状态为404的链接
     public void testStatus404() {
         printDivideLine();
         // 建立下载任务

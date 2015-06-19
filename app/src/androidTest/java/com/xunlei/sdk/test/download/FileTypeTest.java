@@ -2,6 +2,7 @@ package com.xunlei.sdk.test.download;
 
 import android.content.Context;
 
+import android.database.Cursor;
 import android.net.Uri;
 
 import com.xunlei.download.XunLeiDownloadManager.Request;
@@ -30,8 +31,11 @@ public class FileTypeTest extends BaseCase {
 		sleep(5);
 		CaseUtils.verifyDownloadResult(context, downloadManager, id);
 		// 验证下载任务的文件类型
-		String type = CaseUtils.selectMimeType(context, downloadManager, id);
+		Cursor cursor = CaseUtils.selectTask(context,downloadManager,id);
+		String type = cursor.getString(cursor.getColumnIndex("mimetype"));
 		assertEquals("文件类型错误", "application/vnd.android.package-archive", type);
+		assertNotNull("APK Version字段为空", cursor.getColumnIndex("apk_version"));
+		assertNotNull("APK Package字段为空",cursor.getColumnIndex("apk_package"));
 	}
 
 	// 类型为JPG
@@ -113,7 +117,7 @@ public class FileTypeTest extends BaseCase {
 		String type = CaseUtils.selectMimeType(context, downloadManager, id);
 		assertEquals("文件类型错误", "audio/mpeg", type);
 	}
-	
+
 	// 类型为TXT
 	public void test_TXT() {
 		printDivideLine();

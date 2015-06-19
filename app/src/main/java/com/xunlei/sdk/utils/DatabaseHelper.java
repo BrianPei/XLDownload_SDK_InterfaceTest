@@ -5,8 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-	private final static String DATABASE_NAME = "downloads.db";
-	private final static int DATABASE_VERSION = 2;
+	private final static String DATABASE_NAME = "xldownloads.db";
+	private final static int DATABASE_VERSION = 3;
 
 	public DatabaseHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);

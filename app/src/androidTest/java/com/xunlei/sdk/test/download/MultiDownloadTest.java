@@ -74,10 +74,10 @@ public class MultiDownloadTest extends BaseCase {
         // 查询本地数据库验证2个下载任务的Title不相同
         Cursor cursor1 = CaseUtils.selectTask(context, downloadManager, id1);
         String title1 = cursor1.getString(cursor1.getColumnIndex("title"));
-        DebugLog.d("Test_Debug", "File Title = " + title1);
+        DebugLog.d("Test_Debug", "File Title1 = " + title1);
         Cursor cursor2 = CaseUtils.selectTask(context, downloadManager, id2);
         String title2 = cursor2.getString(cursor1.getColumnIndex("title"));
-        DebugLog.d("Test_Debug", "File Title = " + title2);
+        DebugLog.d("Test_Debug", "File Title2 = " + title2);
         assertTrue("重复任务名称相同", title1 != title2);
         //删除下载任务，清理测试环境
         CaseUtils.deleteTasks(downloadManager, id1, id2);
