@@ -3,7 +3,7 @@ package com.xunlei.sdk.test.manager;
 import android.content.Context;
 import android.util.Log;
 
-import com.xunlei.download.XunLeiDownloadManager;
+import com.xunlei.download.DownloadManager;
 import com.xunlei.sdk.utils.BaseCase;
 
 /*
@@ -15,7 +15,7 @@ public class GetRecommendedMaxBytesOverMobile extends BaseCase {
         printDivideLine();
         Context context = this.getContext();
         // 调用接口
-        long bytes = XunLeiDownloadManager
+        long bytes = DownloadManager
                 .getRecommendedMaxBytesOverMobile(context);
         Log.d("Test_Debug",
                 "Recommended MaxBytes OverMobile = " + bytes);

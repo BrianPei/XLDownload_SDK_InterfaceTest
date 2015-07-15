@@ -15,7 +15,7 @@ public class AddCompletedDownload extends BaseCase {
 		printDivideLine();
 		String path = "/storage/sdcard0/Download/TEST.apk";
 		String title = "test";
-		String description = "Test Description";
+		String description = "TestJunit4 Description";
 		String mimeType = "application/vnd.android.package-archive";
 		// 调用接口
 		long id = downloadManager.addCompletedDownload(title, description,
@@ -50,7 +50,7 @@ public class AddCompletedDownload extends BaseCase {
 		printDivideLine();
 		String path = "/storage/sdcard0/Download/TEST.apk";
 		String title = "test";
-		String description = "Test Description";
+		String description = "TestJunit4 Description";
 		String mimeType = "application/vnd.android.package-archive";
 		// 调用接口
 		long id = downloadManager.addCompletedDownload(title, description,

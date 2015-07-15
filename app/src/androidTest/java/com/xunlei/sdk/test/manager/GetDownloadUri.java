@@ -1,7 +1,7 @@
 package com.xunlei.sdk.test.manager;
 
 import android.net.Uri;
-import com.xunlei.download.XunLeiDownloadManager;
+import com.xunlei.download.DownloadManager;
 import com.xunlei.sdk.utils.BaseCase;
 import com.xunlei.sdk.utils.log.DebugLog;
 
@@ -14,7 +14,7 @@ public class GetDownloadUri extends BaseCase {
 	public void testGetDownloadUri() {
 		printDivideLine();
 		// 调用接口
-		Uri downloadUri = XunLeiDownloadManager.getDownloadUri();
+		Uri downloadUri = DownloadManager.getDownloadUri();
 		DebugLog.d("Test_Debug", "DownloadProvider = " + downloadUri);
 		// 验证结果
 		assertEquals(
@@ -27,7 +27,7 @@ public class GetDownloadUri extends BaseCase {
 	public void testGetDownloadUriWithID() {
 		printDivideLine();
 		// 调用接口
-		Uri downloadUri = XunLeiDownloadManager.getDownloadUri(1L);
+		Uri downloadUri = DownloadManager.getDownloadUri(1L);
 		DebugLog.d("Test_Debug", "DownloadProvider = " + downloadUri);
 		// 验证结果
 		assertEquals(

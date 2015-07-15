@@ -3,12 +3,12 @@ package com.xunlei.sdk.utils;
 import android.content.Context;
 import android.test.AndroidTestCase;
 
-import com.xunlei.download.XunLeiDownloadManager;
-import com.xunlei.download.XunLeiDownloadManager.Query;
+import com.xunlei.download.DownloadManager;
+import com.xunlei.download.DownloadManager.Query;
 import com.xunlei.sdk.utils.log.DebugLog;
 
 public class BaseCase extends AndroidTestCase {
-	protected XunLeiDownloadManager downloadManager;
+	protected DownloadManager downloadManager;
 	protected Query query;
 	protected DatabaseHelper dbHelper;
 
@@ -19,7 +19,7 @@ public class BaseCase extends AndroidTestCase {
 
 	public void setUp() {
 		Context context = this.getContext();
-		downloadManager = new XunLeiDownloadManager(context);
+		downloadManager = new DownloadManager(context);
 		query = new Query();
 		dbHelper = new DatabaseHelper(context);
 	}

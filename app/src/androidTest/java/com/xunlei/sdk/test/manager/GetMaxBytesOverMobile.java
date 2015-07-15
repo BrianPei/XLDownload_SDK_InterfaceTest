@@ -1,7 +1,7 @@
 package com.xunlei.sdk.test.manager;
 
 import android.content.Context;
-import com.xunlei.download.XunLeiDownloadManager;
+import com.xunlei.download.DownloadManager;
 import com.xunlei.sdk.utils.BaseCase;
 import com.xunlei.sdk.utils.log.DebugLog;
 
@@ -14,7 +14,7 @@ public class GetMaxBytesOverMobile extends BaseCase {
 		printDivideLine();
 		Context context = this.getContext();
 		// 调用接口
-		long bytes = XunLeiDownloadManager.getMaxBytesOverMobile(context);
+		long bytes = DownloadManager.getMaxBytesOverMobile(context);
 		DebugLog.d("Test_Debug",
 				"MaxBytes OverMobile = " + bytes);
 		// 验证结果

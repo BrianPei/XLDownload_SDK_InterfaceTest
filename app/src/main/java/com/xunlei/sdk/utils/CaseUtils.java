@@ -8,8 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.test.AndroidTestCase;
 
-import com.xunlei.download.XunLeiDownloadManager;
-import com.xunlei.download.XunLeiDownloadManager.Request;
+import com.xunlei.download.DownloadManager;
+import com.xunlei.download.DownloadManager.Request;
 import com.xunlei.sdk.utils.log.DebugLog;
 
 public class CaseUtils extends AndroidTestCase {
@@ -35,7 +35,7 @@ public class CaseUtils extends AndroidTestCase {
      * @param downloadManager
      * @return Task id
      */
-    public static long insertDownloadTask(XunLeiDownloadManager downloadManager) {
+    public static long insertDownloadTask(DownloadManager downloadManager) {
         Request request = new Request(
                 Uri.parse("http://cache.iruan.cn/201412/201412181_uc.apk"));
         request.setDestinationInExternalPublicDir("Download/sdk_test",
@@ -54,7 +54,7 @@ public class CaseUtils extends AndroidTestCase {
      * @return
      */
     public static long insertSuccessfulTask(Context context,
-                                            XunLeiDownloadManager downloadManager) {
+                                            DownloadManager downloadManager) {
         Request request = new Request(
                 Uri.parse("http://imgsrc.baidu.com/baike/pic/item/3b292df5e0fe99254496c22237a85edf8db1712e.jpg"));
         request.setDestinationInExternalPublicDir("Download/sdk_test",
@@ -85,7 +85,7 @@ public class CaseUtils extends AndroidTestCase {
      * @return Task id
      */
     public static long insertFailedTask(Context context,
-                                        XunLeiDownloadManager downloadManager) {
+                                        DownloadManager downloadManager) {
         Request request = new Request(
                 Uri.parse("http://cdnuni.115.com/gdown_group332/M00/0B/6E/d5OWY0-_bVcAAAAAOGK3fz71ngM0150638/100089-all.wmv?k=sgs6axlCZLA00D-XJBVGVA&t=1419830076&u=2099433270-363775315-at3qgni1yq8pwh44v&s=307200&file=100089-all.wmv"));
         request.setDestinationInExternalPublicDir("Download/sdk_test",
@@ -116,7 +116,7 @@ public class CaseUtils extends AndroidTestCase {
      * @return Cursor
      */
     public static Cursor selectTaskByStatus(Context context,
-                                            XunLeiDownloadManager downloadManager, int status) {
+                                            DownloadManager downloadManager, int status) {
         DatabaseHelper dbHelper = new DatabaseHelper(context);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(
@@ -134,7 +134,7 @@ public class CaseUtils extends AndroidTestCase {
      * @return Cursor
      */
     public static Cursor selectTask(Context context,
-                                    XunLeiDownloadManager downloadManager, long id) {
+                                    DownloadManager downloadManager, long id) {
         DatabaseHelper dbHelper = new DatabaseHelper(context);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from xl_downloads where _id = "
@@ -151,7 +151,7 @@ public class CaseUtils extends AndroidTestCase {
      * @return Cursor
      */
     public static Cursor selectAllTask(Context context,
-                                       XunLeiDownloadManager downloadManager) {
+                                       DownloadManager downloadManager) {
         DatabaseHelper dbHelper = new DatabaseHelper(context);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from xl_downloads", null);
@@ -168,7 +168,7 @@ public class CaseUtils extends AndroidTestCase {
      * @return int speed
      */
     public static int selectDownloadSpeed(Context context,
-                                          XunLeiDownloadManager downloadManager, long id) {
+                                          DownloadManager downloadManager, long id) {
         Cursor cursor = selectTask(context, downloadManager, id);
         int speed = cursor.getInt(cursor.getColumnIndex("download_speed"));
         DebugLog.d("Test_Debug", "Download Speed = " + speed);
@@ -184,7 +184,7 @@ public class CaseUtils extends AndroidTestCase {
      * @return int status
      */
     public static int selectDownloadStatus(Context context,
-                                           XunLeiDownloadManager downloadManager, long id) {
+                                           DownloadManager downloadManager, long id) {
         Cursor cursor = selectTask(context, downloadManager, id);
         int status = cursor.getInt(cursor.getColumnIndex("status"));
         DebugLog.d("Test_Debug", "Download Status = " + status);
@@ -200,7 +200,7 @@ public class CaseUtils extends AndroidTestCase {
      * @return int size(byte)
      */
     public static int selectTargetSize(Context context,
-                                       XunLeiDownloadManager downloadManager, long id) {
+                                       DownloadManager downloadManager, long id) {
         Cursor cursor = selectTask(context, downloadManager, id);
         int size = cursor.getInt(cursor.getColumnIndex("total_bytes"));
         DebugLog.d("Test_Debug", "File Size = " + size);
@@ -216,7 +216,7 @@ public class CaseUtils extends AndroidTestCase {
      * @return String mimeType
      */
     public static String selectMimeType(Context context,
-                                        XunLeiDownloadManager downloadManager, long id) {
+                                        DownloadManager downloadManager, long id) {
         Cursor cursor = selectTask(context, downloadManager, id);
         String mimeType = cursor.getString(cursor.getColumnIndex("mimetype"));
         DebugLog.d("Test_Debug", "MimeType = " + mimeType);
@@ -231,7 +231,7 @@ public class CaseUtils extends AndroidTestCase {
      * @return Cursor
      */
     public static Cursor selectNewTask(Context context,
-                                       XunLeiDownloadManager downloadManager) {
+                                       DownloadManager downloadManager) {
         DatabaseHelper dbHelper = new DatabaseHelper(context);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(
@@ -246,7 +246,7 @@ public class CaseUtils extends AndroidTestCase {
      * @param downloadManager
      * @param ids
      */
-    public static void deleteTasks(XunLeiDownloadManager downloadManager, long... ids) {
+    public static void deleteTasks(DownloadManager downloadManager, long... ids) {
         int result = downloadManager.remove(ids);
         assertTrue("删除任务失败", result > 0);
     }
@@ -259,7 +259,7 @@ public class CaseUtils extends AndroidTestCase {
      * @param id
      */
     public static void verifyDownloadResult(Context context,
-                                            XunLeiDownloadManager downloadManager, long id) {
+                                            DownloadManager downloadManager, long id) {
         int status = selectDownloadStatus(context, downloadManager,
                 id);
         if (status == 192) {

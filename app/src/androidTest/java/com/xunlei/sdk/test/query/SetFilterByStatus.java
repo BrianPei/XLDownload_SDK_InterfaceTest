@@ -2,7 +2,7 @@ package com.xunlei.sdk.test.query;
 
 import android.database.Cursor;
 
-import com.xunlei.download.XunLeiDownloadManager;
+import com.xunlei.download.DownloadManager;
 import com.xunlei.sdk.utils.BaseCase;
 import com.xunlei.sdk.utils.log.DebugLog;
 
@@ -15,7 +15,7 @@ public class SetFilterByStatus extends BaseCase {
     public void testSetFilterByStatus200() {
         printDivideLine();
         // 调用接口
-        query.setFilterByStatus(XunLeiDownloadManager.STATUS_SUCCESSFUL);
+        query.setFilterByStatus(DownloadManager.STATUS_SUCCESSFUL);
         // 查询数据库验证结果
         Cursor cursor = downloadManager.query(query);
         if (cursor.getCount() > 0) {
@@ -36,7 +36,7 @@ public class SetFilterByStatus extends BaseCase {
     public void testSetFilterByStatus192() {
         printDivideLine();
         // 调用接口
-        query.setFilterByStatus(XunLeiDownloadManager.STATUS_RUNNING);
+        query.setFilterByStatus(DownloadManager.STATUS_RUNNING);
         // 查询数据库验证结果
         Cursor cursor = downloadManager.query(query);
         if (cursor.getCount() > 0) {
@@ -57,7 +57,7 @@ public class SetFilterByStatus extends BaseCase {
     public void testSetFilterByStatus190() {
         printDivideLine();
         // 调用接口
-        query.setFilterByStatus(XunLeiDownloadManager.STATUS_PENDING);
+        query.setFilterByStatus(DownloadManager.STATUS_PENDING);
         // 查询数据库验证结果
         Cursor cursor = downloadManager.query(query);
         if (cursor.getCount() > 0) {
@@ -78,7 +78,7 @@ public class SetFilterByStatus extends BaseCase {
     public void testSetFilterByStatus193() {
         printDivideLine();
         // 调用接口
-        query.setFilterByStatus(XunLeiDownloadManager.STATUS_PAUSED);
+        query.setFilterByStatus(DownloadManager.STATUS_PAUSED);
         // 查询数据库验证结果
         Cursor cursor = downloadManager.query(query);
         if (cursor.getCount() > 0) {
@@ -99,7 +99,7 @@ public class SetFilterByStatus extends BaseCase {
     public void testSetFilterByStatus400() {
         printDivideLine();
         // 调用接口
-        query.setFilterByStatus(XunLeiDownloadManager.STATUS_FAILED);
+        query.setFilterByStatus(DownloadManager.STATUS_FAILED);
         // 查询数据库验证结果
         Cursor cursor = downloadManager.query(query);
         if (cursor.getCount() > 0) {

@@ -4,7 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 
-import com.xunlei.download.XunLeiDownloadManager.Request;
+import com.xunlei.download.DownloadManager.Request;
 import com.xunlei.sdk.utils.BaseCase;
 import com.xunlei.sdk.utils.CaseUtils;
 import com.xunlei.sdk.utils.log.DebugLog;
